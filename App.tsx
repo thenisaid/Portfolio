@@ -145,10 +145,16 @@ const App: React.FC = () => {
                 <p className="text-sm text-zinc-300">누적 참여자 1,000명 이상, 만족도 4.8/5.0을 기록하며 업계 표준을 만들어가는 지식 공유의 장으로 자리매김했습니다.</p>
               </div>
             </div>
-            <div className="w-full aspect-video bg-[#0050ff] border border-border rounded-lg overflow-hidden relative group flex items-center justify-center">
-              <span className="text-white text-5xl md:text-7xl font-sans font-medium tracking-tighter transition-transform duration-700 group-hover:scale-110 select-none">
-                ↑ndex uxer↗
-              </span>
+            <div className="w-full aspect-video bg-zinc-800 border border-border rounded-lg overflow-hidden relative group">
+              <img 
+                src="/images/project-01.jpg" 
+                alt="UX Writer Conference" 
+                className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
+              />
+              <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500"></div>
+              <div className="absolute bottom-6 left-6 text-white text-sm font-medium tracking-wide border border-white/20 bg-black/30 backdrop-blur-sm px-4 py-2 rounded-full">
+                ↑ndex uxer Conf.
+              </div>
             </div>
           </div>
         </section>
