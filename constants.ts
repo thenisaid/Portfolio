@@ -33,7 +33,7 @@ export const PROJECTS: Project[] = [
     title: "'UX 라이터로 살아가기' 컨퍼런스",
     category: 'Conference Host',
     description: '국내 유일 UX 라이팅 컨퍼런스 기획 및 운영, 누적 참여자 1,000명 돌파하며 직무 인식 제고 기여',
-    image: '/images/project-01.jpg',
+    image: '/images/project-01.png',
     tags: ['Conference Planning', 'Community Building', 'Branding'],
   },
   {

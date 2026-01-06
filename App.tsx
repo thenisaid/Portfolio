@@ -147,7 +147,7 @@ const App: React.FC = () => {
             </div>
             <div className="w-full aspect-video bg-zinc-800 border border-border rounded-lg overflow-hidden relative group">
               <img 
-                src="/images/project-01.jpg" 
+                src="/images/project-01.png" 
                 alt="UX Writer Conference" 
                 className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
               />
