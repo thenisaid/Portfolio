@@ -32,6 +32,16 @@ const App: React.FC = () => {
     }
   };
 
+  // Helper for image error handling
+  const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+    const img = e.currentTarget;
+    console.warn(`Failed to load image: ${img.getAttribute('src')}`);
+    // Prevent infinite loop
+    img.onerror = null; 
+    img.src = "https://placehold.co/600x400/262626/FFF?text=Image+Not+Found";
+    img.style.opacity = "0.5";
+  };
+
   return (
     <main className="relative w-full h-screen bg-background text-primary overflow-hidden font-sans">
       
@@ -147,8 +157,9 @@ const App: React.FC = () => {
             </div>
             <div className="w-full aspect-video bg-zinc-800 border border-border rounded-lg overflow-hidden relative group">
               <img 
-                src="/images/project-01.png" 
+                src="./images/project-01.png" 
                 alt="UX Writer Conference" 
+                onError={handleImageError}
                 className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
               />
               <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500"></div>
@@ -162,66 +173,15 @@ const App: React.FC = () => {
         {/* Slide 5: Project 2 - Book & Class101 */}
         <section className="h-screen w-full snap-start flex flex-col justify-center px-[10%] relative">
           <div className="grid md:grid-cols-2 gap-20 items-center">
-            {/* Generative Art SVG: From Book to Digital */}
-            <div className="order-2 md:order-1 w-full aspect-[3/4] max-h-[500px] bg-[#1a1a1a] border border-border rounded-lg overflow-hidden relative group shadow-2xl">
-              <svg className="w-full h-full p-10" viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                  <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
-                    <feGaussianBlur stdDeviation="5" result="blur" />
-                    <feComposite in="SourceGraphic" in2="blur" operator="over" />
-                  </filter>
-                </defs>
-
-                {/* Background Grid - Digital Context */}
-                <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-                  <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#262626" strokeWidth="1"/>
-                </pattern>
-                <rect width="100%" height="100%" fill="url(#grid)" />
-
-                {/* Connection Lines (Flow of Knowledge) */}
-                <path d="M200,320 C200,250 100,250 100,150" fill="none" stroke="#3f3f46" strokeWidth="2" strokeDasharray="5,5" className="group-hover:stroke-accent transition-colors duration-700" />
-                <path d="M200,320 C200,250 300,250 300,150" fill="none" stroke="#3f3f46" strokeWidth="2" strokeDasharray="5,5" className="group-hover:stroke-accent transition-colors duration-700 delay-100" />
-                <path d="M200,320 L200,150" fill="none" stroke="#3f3f46" strokeWidth="2" strokeDasharray="5,5" className="group-hover:stroke-accent transition-colors duration-700 delay-200" />
-
-                {/* The Book (Base of Knowledge) */}
-                <g transform="translate(140, 320)">
-                    {/* Pages Left */}
-                    <path d="M0,0 Q-50,10 -60,60 L0,50 Z" fill="#27272a" stroke="#d4d4d8" strokeWidth="1.5" />
-                    <path d="M0,5 Q-45,15 -55,60" fill="none" stroke="#52525b" strokeWidth="1" />
-                    {/* Pages Right */}
-                    <path d="M0,0 Q50,10 60,60 L0,50 Z" fill="#27272a" stroke="#d4d4d8" strokeWidth="1.5" />
-                    <path d="M0,5 Q45,15 55,60" fill="none" stroke="#52525b" strokeWidth="1" />
-                    {/* Spine */}
-                    <line x1="0" y1="0" x2="0" y2="50" stroke="#d97706" strokeWidth="2" />
-                </g>
-                
-                {/* Floating Elements (Expansion) */}
-                
-                {/* Element 1: Published Book/Text */}
-                <g transform="translate(80, 120)" className="animate-[float_4s_ease-in-out_infinite]">
-                    <rect x="0" y="0" width="60" height="80" rx="2" fill="#18181b" stroke="#d97706" strokeWidth="1.5" />
-                    <line x1="15" y1="20" x2="45" y2="20" stroke="#71717a" strokeWidth="2" />
-                    <line x1="15" y1="35" x2="45" y2="35" stroke="#71717a" strokeWidth="2" />
-                    <line x1="15" y1="50" x2="30" y2="50" stroke="#71717a" strokeWidth="2" />
-                </g>
-
-                {/* Element 2: Lecture/Media (Center) */}
-                <g transform="translate(170, 80)" className="animate-[float_5s_ease-in-out_infinite_delay-1000]">
-                    <rect x="0" y="0" width="80" height="60" rx="4" fill="#18181b" stroke="#d97706" strokeWidth="1.5" filter="url(#glow)" />
-                    <path d="M30,15 L55,30 L30,45 Z" fill="#d97706" />
-                    <rect x="20" y="65" width="40" height="3" rx="1.5" fill="#3f3f46" />
-                </g>
-
-                {/* Element 3: Mentoring/People */}
-                <g transform="translate(280, 140)" className="animate-[float_6s_ease-in-out_infinite_delay-500]">
-                    <circle cx="20" cy="20" r="20" fill="#18181b" stroke="#d97706" strokeWidth="1.5" />
-                    <circle cx="20" cy="15" r="6" fill="#71717a" />
-                    <path d="M10,30 Q20,40 30,30" fill="none" stroke="#71717a" strokeWidth="2" />
-                </g>
-                
-                {/* Caption */}
-                <text x="200" y="450" textAnchor="middle" fill="#52525b" fontSize="11" letterSpacing="0.2em" fontFamily="monospace">EXPANDING EXPERIENCE</text>
-              </svg>
+            {/* Project 2 Image */}
+            <div className="order-2 md:order-1 w-full aspect-[3/4] max-h-[500px] bg-zinc-800 border border-border rounded-lg overflow-hidden relative group shadow-2xl">
+              <img 
+                src="./images/project-02.png" 
+                alt="Book Publishing & Class101 Lecture" 
+                onError={handleImageError}
+                className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
+              />
+              <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500"></div>
             </div>
             
             <div className="order-1 md:order-2">
