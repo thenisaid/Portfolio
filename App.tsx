@@ -32,16 +32,6 @@ const App: React.FC = () => {
     }
   };
 
-  // Helper for image error handling
-  const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
-    const img = e.currentTarget;
-    console.warn(`Failed to load image: ${img.getAttribute('src')}`);
-    // Prevent infinite loop
-    img.onerror = null; 
-    img.src = "https://placehold.co/600x400/262626/FFF?text=Image+Not+Found";
-    img.style.opacity = "0.5";
-  };
-
   return (
     <main className="relative w-full h-screen bg-background text-primary overflow-hidden font-sans">
       
@@ -141,75 +131,110 @@ const App: React.FC = () => {
           </div>
         </section>
 
-        {/* Slide 4: Project 1 - Conference */}
+        {/* Slide 4: Project 1 - Conference (Text Only Layout) */}
         <section className="h-screen w-full snap-start flex flex-col justify-center px-[10%] relative">
-          <div className="grid md:grid-cols-2 gap-20 items-center">
-            <div>
-              <span className="text-xs uppercase opacity-40 mb-3 block font-medium">Project 01</span>
-              <h3 className="text-4xl mb-8 leading-tight font-title">"Living as a UX Writer"<br />Conference</h3>
-              <p className="mb-10 text-base text-secondary">
+          <div className="grid md:grid-cols-2 gap-16 md:gap-24 items-center max-w-6xl mx-auto w-full">
+            {/* Left: Project Details */}
+            <div className="order-1">
+              <div className="flex items-center gap-3 mb-6">
+                <span className="text-xs uppercase text-accent tracking-widest font-bold">Project 01</span>
+                <div className="h-[1px] w-8 bg-zinc-700"></div>
+              </div>
+              <h3 className="text-4xl md:text-5xl mb-8 leading-tight font-title">
+                "Living as a UX Writer"<br />Conference
+              </h3>
+              <p className="mb-10 text-base md:text-lg text-secondary leading-relaxed">
                 국내 UX 라이팅 생태계의 불모지에서, 현업자들의 생생한 경험을 나누고 직무의 전문성을 알리기 위해 매년 대규모 컨퍼런스를 개최하고 있습니다.
               </p>
-              <div className="bg-surface border border-border p-8 rounded-lg">
-                <p className="text-xs text-accent mb-2 uppercase font-bold font-medium">Impact</p>
-                <p className="text-sm text-zinc-300">누적 참여자 1,000명 이상, 만족도 4.8/5.0을 기록하며 업계 표준을 만들어가는 지식 공유의 장으로 자리매김했습니다.</p>
+              <div className="flex gap-2 flex-wrap">
+                  <span className="px-3 py-1 border border-zinc-700 rounded-full text-xs text-zinc-400">Conference Planning</span>
+                  <span className="px-3 py-1 border border-zinc-700 rounded-full text-xs text-zinc-400">Community</span>
               </div>
             </div>
-            <div className="w-full aspect-video bg-zinc-800 border border-border rounded-lg overflow-hidden relative group">
-              <img 
-                src="./images/project-01.png" 
-                alt="UX Writer Conference" 
-                onError={handleImageError}
-                className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
-              />
-              <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500"></div>
-              <div className="absolute bottom-6 left-6 text-white text-sm font-medium tracking-wide border border-white/20 bg-black/30 backdrop-blur-sm px-4 py-2 rounded-full">
-                ↑ndex uxer Conf.
+
+            {/* Right: Impact (Typography Focus) */}
+            <div className="order-2 flex flex-col justify-center">
+              <div className="bg-surface border border-zinc-800 p-10 md:p-12 rounded-2xl relative overflow-hidden group hover:border-accent/30 transition-colors duration-500">
+                <div className="absolute top-0 right-0 p-8 opacity-10">
+                   <span className="text-9xl font-bold font-serif text-white">01</span>
+                </div>
+                <p className="text-sm text-accent mb-4 uppercase font-bold tracking-widest">Key Impact</p>
+                <div className="space-y-6 relative z-10">
+                   <div>
+                      <p className="text-5xl font-light text-white mb-1">1,000<span className="text-2xl ml-1 text-zinc-500">명+</span></p>
+                      <p className="text-sm text-zinc-400">누적 참여자 달성</p>
+                   </div>
+                   <div className="w-full h-[1px] bg-zinc-800"></div>
+                   <div>
+                      <p className="text-5xl font-light text-white mb-1">4.8<span className="text-2xl ml-1 text-zinc-500">/ 5.0</span></p>
+                      <p className="text-sm text-zinc-400">평균 만족도</p>
+                   </div>
+                   <p className="text-sm text-secondary pt-4 leading-relaxed">
+                     "업계 표준을 만들어가는 지식 공유의 장으로 자리매김했습니다."
+                   </p>
+                </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Slide 5: Project 2 - Book & Class101 */}
+        {/* Slide 5: Project 2 - Book & Class101 (Text Only Layout) */}
         <section className="h-screen w-full snap-start flex flex-col justify-center px-[10%] relative">
-          <div className="grid md:grid-cols-2 gap-20 items-center">
-            {/* Project 2 Image */}
-            <div className="order-2 md:order-1 w-full aspect-[3/4] max-h-[500px] bg-zinc-800 border border-border rounded-lg overflow-hidden relative group shadow-2xl">
-              <img 
-                src="./images/project-02.png" 
-                alt="Book Publishing & Class101 Lecture" 
-                onError={handleImageError}
-                className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
-              />
-              <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500"></div>
-            </div>
+          <div className="grid md:grid-cols-2 gap-16 md:gap-24 items-center max-w-6xl mx-auto w-full">
             
-            <div className="order-1 md:order-2">
-              <span className="text-xs uppercase opacity-40 mb-3 block font-medium">Project 02</span>
-              <h3 className="text-4xl mb-8 leading-tight font-title">Book Publishing &<br />Class101 Lecture</h3>
-              <p className="mb-10 text-base text-secondary">
+            {/* Left: Project Details */}
+            <div className="order-1">
+              <div className="flex items-center gap-3 mb-6">
+                <span className="text-xs uppercase text-accent tracking-widest font-bold">Project 02</span>
+                <div className="h-[1px] w-8 bg-zinc-700"></div>
+              </div>
+              <h3 className="text-4xl md:text-5xl mb-8 leading-tight font-title">
+                Book Publishing &<br />Class101 Lecture
+              </h3>
+              <p className="mb-10 text-base md:text-lg text-secondary leading-relaxed">
                 UX 라이팅 책을 집필하고, Class101에서 'UX 라이팅 실전' 강의를 런칭하여 지식 공유와 주니어 양성에 힘쓰고 있습니다.
               </p>
-              <div className="grid grid-cols-2 gap-6">
+               <div className="flex gap-2 flex-wrap">
+                  <span className="px-3 py-1 border border-zinc-700 rounded-full text-xs text-zinc-400">Education</span>
+                  <span className="px-3 py-1 border border-zinc-700 rounded-full text-xs text-zinc-400">Publishing</span>
+              </div>
+            </div>
+            
+            {/* Right: Actions / Links (Visualized as Impact) */}
+            <div className="order-2 flex flex-col justify-center gap-6">
+               <div className="text-right mb-2">
+                 <p className="text-sm text-zinc-500 uppercase tracking-widest">Outcomes & Resources</p>
+               </div>
+
                 <a 
                   href="https://search.shopping.naver.com/book/catalog/49800357720?cat_id=50010881&frm=PBOKPRO&query=ux+%EB%9D%BC%EC%9D%B4%ED%8C%85&NaPm=ct%3Dmjpweflc%7Cci%3D6b809694e50e9b2d380da6c876451e36bb3f5967%7Ctr%3Dboknx%7Csn%3D95694%7Chk%3D60c3232055ac3122bf8dda69af2cf469af0c087a" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="bg-surface border border-border p-5 rounded-lg hover:border-accent/50 transition-colors group cursor-pointer block"
+                  className="bg-surface border border-zinc-700 p-8 rounded-2xl hover:bg-zinc-800 hover:border-accent/50 transition-all group cursor-pointer relative"
                 >
-                  <span className="text-xl font-light text-accent font-medium block mb-1 group-hover:underline">Published Book ↗</span>
-                  <p className="text-[10px] uppercase opacity-40 mt-2 tracking-widest">View Book</p>
+                  <div className="flex justify-between items-start">
+                    <div>
+                       <span className="text-xl font-medium text-white block mb-2 group-hover:text-accent transition-colors">Published Book</span>
+                       <p className="text-sm text-zinc-500">UX Writing 이론과 실무 가이드</p>
+                    </div>
+                    <span className="text-2xl group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300">↗</span>
+                  </div>
                 </a>
+
                 <a 
                   href="https://class101.net/ko/products/65696abc9f8775000d21fde4" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="bg-surface border border-border p-5 rounded-lg hover:border-accent/50 transition-colors group cursor-pointer block"
+                  className="bg-surface border border-zinc-700 p-8 rounded-2xl hover:bg-zinc-800 hover:border-accent/50 transition-all group cursor-pointer relative"
                 >
-                  <span className="text-xl font-light text-accent font-medium block mb-1 group-hover:underline">Class101 ↗</span>
-                  <p className="text-[10px] uppercase opacity-40 mt-2 tracking-widest">View Course</p>
+                  <div className="flex justify-between items-start">
+                    <div>
+                       <span className="text-xl font-medium text-white block mb-2 group-hover:text-accent transition-colors">Class101 Course</span>
+                       <p className="text-sm text-zinc-500">실전 UX 라이팅 온라인 클래스</p>
+                    </div>
+                    <span className="text-2xl group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300">↗</span>
+                  </div>
                 </a>
-              </div>
             </div>
           </div>
         </section>

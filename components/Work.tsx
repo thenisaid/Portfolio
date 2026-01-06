@@ -1,6 +1,5 @@
 import React from 'react';
 import { PROJECTS } from '../constants';
-import { ArrowUpRight } from 'lucide-react';
 
 const Work: React.FC = () => {
   return (
@@ -15,49 +14,50 @@ const Work: React.FC = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 gap-12">
           {PROJECTS.map((project) => (
             <div 
               key={project.id} 
-              className="group relative bg-background border border-white/5 rounded-2xl overflow-hidden hover:border-white/20 transition-all duration-500 hover:-translate-y-2"
+              className="bg-background border border-white/5 rounded-2xl p-8 md:p-12 hover:border-accent/30 transition-all duration-300"
             >
-              <div className="aspect-[16/9] overflow-hidden">
-                <img 
-                  src={project.image} 
-                  alt={project.title} 
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-sm">
-                  <span className="px-6 py-3 bg-white text-black rounded-full font-semibold transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                    자세히 보기
-                  </span>
-                </div>
-              </div>
-              
-              <div className="p-8">
-                <div className="flex flex-wrap gap-2 mb-4">
-                  <span className="text-xs font-mono text-blue-400 border border-blue-400/30 px-2 py-1 rounded">
-                    {project.category}
-                  </span>
-                  {project.tags.map(tag => (
-                    <span key={tag} className="text-xs font-mono text-gray-500 border border-gray-700 px-2 py-1 rounded">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-                <h3 className="text-xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors">
-                  {project.title}
-                </h3>
-                <p className="text-gray-400 text-sm leading-relaxed mb-6">
-                  {project.description}
-                </p>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                 
-                {project.impact && (
-                  <div className="pt-6 border-t border-white/10">
-                    <p className="text-xs text-gray-500 uppercase tracking-wider mb-2">성과 (Impact)</p>
-                    <p className="text-green-400 font-medium">{project.impact}</p>
-                  </div>
-                )}
+                {/* Left: Project Details */}
+                <div>
+                    <div className="flex flex-wrap gap-2 mb-6">
+                        <span className="text-xs font-mono text-accent border border-accent/20 px-2 py-1 rounded">
+                            {project.category}
+                        </span>
+                    </div>
+                    <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 leading-tight">
+                        {project.title}
+                    </h3>
+                    <p className="text-gray-400 text-sm leading-relaxed mb-6">
+                        {project.description}
+                    </p>
+                    <div className="flex flex-wrap gap-2">
+                        {project.tags.map(tag => (
+                            <span key={tag} className="text-xs text-gray-500 border border-gray-800 px-3 py-1 rounded-full">
+                            #{tag}
+                            </span>
+                        ))}
+                    </div>
+                </div>
+
+                {/* Right: Impact or Placeholder for Structure */}
+                <div className="bg-surface/50 rounded-xl p-8 border border-white/5 h-full flex flex-col justify-center">
+                    {project.impact ? (
+                         <div>
+                            <p className="text-xs text-gray-500 uppercase tracking-wider mb-2">Impact</p>
+                            <p className="text-xl md:text-2xl text-white font-medium leading-relaxed">{project.impact}</p>
+                         </div>
+                    ) : (
+                        <div className="flex items-center justify-center h-full text-gray-600 text-sm italic">
+                            <p>"지식 공유를 통한 생태계 확장"</p>
+                        </div>
+                    )}
+                </div>
+
               </div>
             </div>
           ))}
