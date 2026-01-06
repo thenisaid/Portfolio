@@ -123,16 +123,8 @@ const ResumeModal: React.FC<ResumeModalProps> = ({ onClose }) => {
                         <p className="text-zinc-500">UX Writing, Content Design, Information Architecture, Localization</p>
                     </div>
                     <div>
-                        <p className="text-zinc-100 font-medium">Research</p>
-                        <p className="text-zinc-500">A/B Testing, User Interview, VOC Analysis, Usability Testing</p>
-                    </div>
-                    <div>
                         <p className="text-zinc-100 font-medium">Tools</p>
-                        <p className="text-zinc-500">Figma, Notion, Slack, Jira, Amplitude</p>
-                    </div>
-                    <div>
-                        <p className="text-zinc-100 font-medium">Languages</p>
-                        <p className="text-zinc-500">Korean (Native), English (Business)</p>
+                        <p className="text-zinc-500">Figma, Notion, Slack, Jira, Confluence, Lokalise, VibeCoding</p>
                     </div>
                 </div>
             </section>
