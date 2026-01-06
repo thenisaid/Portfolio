@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- SEO & Meta Tags -->
+    <title>Kim Mooseong | UX Writer Portfolio</title>
+    <meta name="description" content="복잡함을 덜어내고 가치를 선명하게 적습니다. UX Writer 김무성의 포트폴리오입니다." />
+    <meta name="keywords" content="UX Writer, UX Writing, Content Design, UX 라이터, 포트폴리오, 김무성" />
+    <meta name="author" content="Kim Mooseong" />
+
+    <!-- Open Graph (Facebook, LinkedIn, KakaoTalk) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://your-portfolio-url.vercel.app/" />
+    <meta property="og:title" content="Kim Mooseong | UX Writer Portfolio" />
+    <meta property="og:description" content="복잡함을 덜어내고 가치를 선명하게 적습니다. 사용자 경험을 설계하는 UX Writer의 포트폴리오를 확인해보세요." />
+    <meta property="og:image" content="https://picsum.photos/id/1/1200/630" /> <!-- 배포 후 실제 스크린샷 이미지 주소로 변경 권장 -->
+    <meta property="og:locale" content="ko_KR" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Kim Mooseong | UX Writer Portfolio" />
+    <meta name="twitter:description" content="복잡함을 덜어내고 가치를 선명하게 적습니다. UX Writer 김무성의 포트폴리오." />
+    <meta name="twitter:image" content="https://picsum.photos/id/1/1200/630" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Pretendard Font -->
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+
+    <style>
+      /* Gmarket Sans Font Definition */
+      @font-face {
+          font-family: 'GmarketSansBold';
+          src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff') format('woff');
+          font-weight: 700;
+          font-style: normal;
+      }
+      @font-face {
+          font-family: 'GmarketSansMedium';
+          src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+          font-weight: 500;
+          font-style: normal;
+      }
+
+      /* Hide scrollbar for Chrome, Safari and Opera */
+      .no-scrollbar::-webkit-scrollbar {
+          display: none;
+      }
+      /* Hide scrollbar for IE, Edge and Firefox */
+      .no-scrollbar {
+          -ms-overflow-style: none;  /* IE and Edge */
+          scrollbar-width: none;  /* Firefox */
+      }
+
+      body {
+        background-color: #0d0d0d;
+        color: #d4d4d8;
+      }
+    </style>
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Pretendard', '-apple-system', 'BlinkMacSystemFont', 'system-ui', 'Roboto', 'sans-serif'],
+              title: ['GmarketSansBold', 'sans-serif'],
+              medium: ['GmarketSansMedium', 'sans-serif'],
+            },
+            colors: {
+              background: '#0d0d0d',
+              surface: '#161616',
+              accent: '#d97706', /* Amber-600 */
+              border: '#262626',
+              primary: '#d4d4d8',
+              secondary: '#a1a1aa',
+            }
+          }
+        }
+      }
+    </script>
+    <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
+    "vite": "https://esm.sh/vite@^7.3.0",
+    "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.2"
+  }
+}
+</script>
+  </head>
+  <body class="antialiased selection:bg-amber-600 selection:text-white overflow-hidden">
+    <div id="root"></div>
+  </body>
+</html>
