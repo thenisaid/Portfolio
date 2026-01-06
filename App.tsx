@@ -263,8 +263,8 @@ const App: React.FC = () => {
               Let's talk about <br /><span className="text-accent italic font-serif">Experience.</span>
             </h2>
             <div className="flex flex-col md:flex-row justify-center gap-10 mt-8 text-sm uppercase tracking-[0.2em] opacity-50">
-              <a href="#" className="hover:text-accent transition-colors">LinkedIn</a>
-              <a href="#" className="hover:text-accent transition-colors">Email</a>
+              <a href="https://www.linkedin.com/in/thenisaid/" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors">LinkedIn</a>
+              <a href="mailto:thenisaid1@gmail.com" className="hover:text-accent transition-colors">Email</a>
               <button onClick={() => setIsResumeOpen(true)} className="hover:text-accent transition-colors underline underline-offset-8">
                 Resume (Click to View)
               </button>
